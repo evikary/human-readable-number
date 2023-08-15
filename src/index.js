@@ -36,7 +36,6 @@
   }
 
   const roundNum = (n) => {
-
     switch(n) {
       case 20: return 'twenty';
       case 30: return 'thirty';
@@ -64,7 +63,7 @@
       num = `${simpleNum(+strNum[0])} hundred ${roundNum(+(`${strNum[1]}${strNum[2]}`))}`
     } else if (strNum[1] === '0' && strNum[2] !== '0') {
       num = `${simpleNum(+strNum[0])} hundred ${simpleNum(+strNum[2])}`
-    } else if (strNum[1] !== '0' && strNum[1] === '1') {
+    } else if (strNum[1] === '1') {
       num = `${simpleNum(+strNum[0])} hundred ${simpleNum(+`${strNum[1]}${strNum[2]}`)}`;
     } else {
       num = `${simpleNum(+strNum[0])} hundred ${roundNum(+strNum[1] * 10)} ${simpleNum(+strNum[2])}`;
