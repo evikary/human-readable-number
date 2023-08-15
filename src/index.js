@@ -3,79 +3,49 @@
   let num = '';
 
   const simpleNum = (n) => {
-    let num = '';
 
    if (n >= 0 && n <= 9) {
     switch(n) {
-      case 0:
-        return num = 'zero';
-      case 1:
-        return num = 'one';
-      case 2:
-        return num = 'two';
-      case 3:
-        return num = "three";
-      case 4:
-        return num = "four";
-       case 5:
-        return num = "five";
-       case 6:
-        return num = "six";
-       case 7:
-        return num = "seven";
-       case 8:
-        return num = "eight";
-       case 9:
-        return num = "nine";
+      case 0: return 'zero';
+      case 1: return 'one';
+      case 2: return 'two';
+      case 3: return "three";
+      case 4: return "four";
+      case 5: return "five";
+      case 6: return "six";
+      case 7: return "seven";
+      case 8: return "eight";
+      case 9: return "nine";
     }
    }
 
    if (n >= 10 && n <= 19) {
     switch(n) {
-      case 10:
-        return num = "ten";
-      case 11:
-        return num = "eleven";
-      case 12:
-        return num = "twelve";
-      case 13:
-        return num = "thirteen";
-       case 14:
-        return num = "fourteen";
-       case 15:
-        return num = "fifteen";
-       case 16:
-        return num = "sixteen";
-      case 17:
-        return num = "seventeen";
-       case 18:
-        return num = "eighteen";
-       case 19:
-        return num = "nineteen";
+      case 10: return "ten";
+      case 11: return "eleven";
+      case 12: return "twelve";
+      case 13: return "thirteen";
+      case 14: return "fourteen";
+      case 15: return "fifteen";
+      case 16: return "sixteen";
+      case 17: return "seventeen";
+      case 18: return "eighteen";
+      case 19: return "nineteen";
     }
    }
   }
 
   const roundNum = (n) => {
-    let num = '';
 
     switch(n) {
-      case 20:
-        return num = 'twenty';
-      case 30:
-        return num = 'thirty';
-      case 40:
-        return num = 'forty';
-      case 50:
-        return num = "fifty";
-      case 60:
-        return num = "sixty";
-       case 70:
-        return num = "seventy";
-       case 80:
-        return num = "eighty";
-       case 90:
-        return num = "ninety";
+      case 20: return 'twenty';
+      case 30: return 'thirty';
+      case 40: return 'forty';
+      case 50: return "fifty";
+      case 60: return "sixty";
+      case 70: return "seventy";
+      case 80: return "eighty";
+      case 90: return "ninety";
     }
   }
 
