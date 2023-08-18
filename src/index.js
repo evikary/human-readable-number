@@ -1,76 +1,73 @@
- function toReadable (number) {
-  const strNum = String(number)
-  let num = '';
+function toReadable(number) {
+    const strNum = String(number);
+    let num = "";
 
-  const simpleNum = (n) => {
+    const simpleNumber = {
+        0: "zero",
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine",
+        10: "ten",
+        11: "eleven",
+        12: "twelve",
+        13: "thirteen",
+        14: "fourteen",
+        15: "fifteen",
+        16: "sixteen",
+        17: "seventeen",
+        18: "eighteen",
+        19: "nineteen",
+    };
 
-   if (n >= 0 && n <= 9) {
-    switch(n) {
-      case 0: return 'zero';
-      case 1: return 'one';
-      case 2: return 'two';
-      case 3: return "three";
-      case 4: return "four";
-      case 5: return "five";
-      case 6: return "six";
-      case 7: return "seven";
-      case 8: return "eight";
-      case 9: return "nine";
+    const roundNumber = {
+        20: "twenty",
+        30: "thirty",
+        40: "forty",
+        50: "fifty",
+        60: "sixty",
+        70: "seventy",
+        80: "eighty",
+        90: "ninety",
+    };
+
+    if (strNum.length === 1 || number <= 19) {
+        num = simpleNumber[number];
+    } else if (strNum.length === 2 && number >= 20) {
+        if (strNum[1] !== "0") {
+            num = `${roundNumber[+strNum[0] * 10]} ${simpleNumber[+strNum[1]]}`;
+        } else {
+            num = roundNumber[+strNum];
+        }
+    } else if (strNum.length === 3) {
+        if (+strNum % 100 === 0) {
+            num = `${simpleNumber[+strNum[0]]} hundred`;
+        } else if (strNum[1] >= 2 && strNum[2] === "0") {
+            num = `${simpleNumber[+strNum[0]]} hundred ${
+                roundNumber[+`${strNum[1]}${strNum[2]}`]
+            }`;
+        } else if (strNum[1] === "0" && strNum[2] !== "0") {
+            num = `${simpleNumber[+strNum[0]]} hundred ${
+                simpleNumber[+strNum[2]]
+            }`;
+        } else if (strNum[1] === "1") {
+            `${strNum[1]}${strNum[2]}`;
+            num = `${simpleNumber[+strNum[0]]} hundred ${
+                simpleNumber[+`${strNum[1]}${strNum[2]}`]
+            }`;
+        } else {
+            num = `${simpleNumber[+strNum[0]]} hundred ${
+                roundNumber[+strNum[1] * 10]
+            } ${simpleNumber[+strNum[2]]}`;
+        }
     }
-   }
 
-   if (n >= 10 && n <= 19) {
-    switch(n) {
-      case 10: return "ten";
-      case 11: return "eleven";
-      case 12: return "twelve";
-      case 13: return "thirteen";
-      case 14: return "fourteen";
-      case 15: return "fifteen";
-      case 16: return "sixteen";
-      case 17: return "seventeen";
-      case 18: return "eighteen";
-      case 19: return "nineteen";
-    }
-   }
-  }
-
-  const roundNum = (n) => {
-    switch(n) {
-      case 20: return 'twenty';
-      case 30: return 'thirty';
-      case 40: return 'forty';
-      case 50: return "fifty";
-      case 60: return "sixty";
-      case 70: return "seventy";
-      case 80: return "eighty";
-      case 90: return "ninety";
-    }
-  }
-
-  if (strNum.length === 1 || number <= 19) {
-    num = simpleNum(number);
-  } else if (strNum.length === 2 && number >= 20) {
-    if (strNum[1] !== '0') {
-      num = `${roundNum(+strNum[0] * 10)} ${simpleNum(+strNum[1])}`;
-    } else {
-      num = roundNum(+strNum);
-    }
-  } else if (strNum.length === 3) {
-    if (strNum[1] === '0' && strNum[2] === '0') {
-      num = `${simpleNum(+strNum[0])} hundred`;
-    } else if (strNum[1] !== '0' && strNum[1] !== '1' && strNum[2] === '0') {
-      num = `${simpleNum(+strNum[0])} hundred ${roundNum(+(`${strNum[1]}${strNum[2]}`))}`
-    } else if (strNum[1] === '0' && strNum[2] !== '0') {
-      num = `${simpleNum(+strNum[0])} hundred ${simpleNum(+strNum[2])}`
-    } else if (strNum[1] === '1') {
-      num = `${simpleNum(+strNum[0])} hundred ${simpleNum(+`${strNum[1]}${strNum[2]}`)}`;
-    } else {
-      num = `${simpleNum(+strNum[0])} hundred ${roundNum(+strNum[1] * 10)} ${simpleNum(+strNum[2])}`;
-    }
-  } 
-
-  return num;
+    return num;
 }
 
 module.exports = toReadable;
